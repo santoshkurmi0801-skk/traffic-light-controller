@@ -1,0 +1,42 @@
+### Create an intersection
+POST http://localhost:8080/api/traffic/intersections
+Content-Type: application/json
+
+{
+  "id": "x-int-1"
+}
+
+### List intersections
+GET http://localhost:8080/api/traffic/intersections
+
+### Set plan
+PUT http://localhost:8080/api/traffic/intersections/x-int-1/plan
+Content-Type: application/json
+
+{
+  "nsGreenMs": 5000,
+  "nsYellowMs": 1000,
+  "ewGreenMs": 5000,
+  "ewYellowMs": 1000
+}
+
+### Resume
+POST http://localhost:8080/api/traffic/intersections/x-int-1/resume
+
+### State
+GET http://localhost:8080/api/traffic/intersections/x-int-1/state
+
+### Pause
+POST http://localhost:8080/api/traffic/intersections/x-int-1/pause
+
+### Manual change (allowed only when paused)
+POST http://localhost:8080/api/traffic/intersections/x-int-1/change
+Content-Type: application/json
+
+{
+  "direction": "NORTH_SOUTH",
+  "state": "GREEN"
+}
+
+### History
+GET http://localhost:8080/api/traffic/intersections/x-int-1/history

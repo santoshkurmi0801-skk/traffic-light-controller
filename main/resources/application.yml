@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: traffic-light-controller
+server:
+  port: 8081
